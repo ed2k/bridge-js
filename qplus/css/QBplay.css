@@ -1,0 +1,232 @@
+
+/* ======================================== PLAY TAB: Match		*/
+
+#PlayViewMatch button {
+	margin: 5px;
+    border: 2px solid #c8c8ff;	
+	border-radius: 4px;
+	padding-top:		4px;
+	padding-bottom:		4px;	
+}
+
+/* ======================================== PLAY TAB: Deals		*/
+
+#PlayViewDeals button {
+	padding-top:		4px;
+	padding-bottom:		4px;	
+}
+
+/* ======================================== PLAY TAB: Score		*/
+
+#PlayViewScore {
+	background-color:	#d6d6ff;
+}
+
+#ScoreViewOverview {
+    font-size:			100%;
+}
+#QB_ScoreOVFooter {
+	position:			absolute;
+	left:				0px;
+	background-color:	#003070;
+	color:				white;
+}
+
+#QB_ScoreOVFooter button {
+	padding-left:		5px;
+	padding-right:		5px;
+	padding-top:		4px;
+	padding-bottom:		2px;
+	margin-top:			5px;
+	font-weight:		600;
+	background: 		#cde;
+	border-radius: 		4px;
+	min-width:		8%;	
+	margin-left:    8%;
+}
+
+/*
+#ScoreViewDetails1 {
+    font-size:			100%;
+}
+#ScoreViewDetails2 {
+    font-size:			100%;
+}
+*/
+
+#QB_ScoreOVTable tr {
+	background-color:	#ddf;
+}
+#QB_ScoreOVTable tr.scoreTabHead {
+	background-color:	#cce;
+}
+#QB_ScoreOVTable tr.scoreTabSum {
+	background-color:	#ddc;
+}
+
+#QB_ScoreOVTable td {
+	border: 2px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 5px;
+}
+#QB_ScoreOVTable td.scoreTabDealId {
+	background-color:	#bbc;
+}
+#QB_ScoreOVTable td.scoreTabNr {
+	background-color:	#bbc;
+}
+#QB_ScoreOVTable td.scoreTabCurrNr {
+	background-color:	#bbc;
+	color:	#03c;
+}
+
+#QB_ScoreOVTable .scoreRubberHeadC1 {
+	border: 1px solid grey;
+}
+#QB_ScoreOVTable .scoreRubberHeadC4 {
+	border: 1px solid grey;
+}
+
+#QB_ScoreOVTable .scoreRubberAC2, .scoreRubberAC3, .scoreRubberBC2, .scoreRubberBC3 {
+	background-color:	#2b6;
+}
+#QB_ScoreOVTable td.scoreRubberAC1 {
+	border: 1px solid grey;
+    width:			25%; 
+	text-align: right;
+	padding-right: 8px;
+}
+#QB_ScoreOVTable td.scoreRubberAC2 {
+    width:			10%; 
+	border-bottom: 3px solid black;
+}
+#QB_ScoreOVTable td.scoreRubberAC3 {
+    width:			10%; 
+	border-bottom: 3px solid black;
+}
+#QB_ScoreOVTable td.scoreRubberAC4 {
+	border: 1px solid grey;
+    width:			25%;
+	text-align: left;
+	padding-left: 8px; 
+}
+
+#QB_ScoreOVTable tr.scoreRubberBelow1 td.scoreRubberBC2 {
+	border-top: 3px solid black;
+}
+#QB_ScoreOVTable tr.scoreRubberBelow1 td.scoreRubberBC3 {
+	border-top: 3px solid black;
+}
+#QB_ScoreOVTable td.scoreRubberBC1 {
+	border: 1px solid grey;
+	text-align: right;
+	padding-right: 8px;
+}
+#QB_ScoreOVTable td.scoreRubberBC4 {
+	border: 1px solid grey;
+	text-align: left;
+	padding-left: 8px; 
+}
+#QB_ScoreOVTable .scoreRubberSumC1 {
+	border: 1px solid grey;
+	text-align: right;
+	padding-right: 8px;	
+}
+#QB_ScoreOVTable .scoreRubberSumC4 {
+	border: 1px solid grey;
+}
+
+#QB_ScoreOVTable span.rubberTextLast {
+	color: #02d;
+}
+
+#QB_ScorePairResults tr {
+	background-color:	#ddf;
+}
+#QB_ScorePairResults tr.scoreTabHead {
+	background-color:	#cce;
+}
+#QB_ScorePairResults td {
+	border: 2px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 5px;
+}
+
+#QB_ScorePairSums tr {
+	background-color:	#ddf;
+}
+#QB_ScorePairSums tr.scoreTabHead {
+	background-color:	#cce;
+}
+#QB_ScorePairSums tr.scoreCurrent {
+	background-color:	#def;
+}
+#QB_ScorePairSums td {
+	border: 2px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 5px;
+}
+
+/* ======================================== BID EXPLANATIONS		*/
+
+#ExplainPWin {
+	padding:			2px;
+	background-color:	#d4def0;
+}
+
+#BidExplanations {
+	margin-top:		3px;
+}
+
+#BidExplanations div {
+	margin-left:	2px;
+	border:	1px solid grey;
+	padding:         3px;	
+}
+
+#BidExplanations .legend {
+	display:			inline-block;
+	vertical-align:		top;
+	padding-left:		5px;
+}
+
+/* ======================================== LEAD CONVENTIONS	*/
+
+#QB_LeadConvTable tr {
+	/* background-color:	#d4def0; */
+}
+
+#QB_LeadConvTable td {
+	text-align: center;
+	min-width: 60px;
+	padding: 5px;
+}
+
+#QB_LeadConvTable #QBLcHead2 td {
+	padding-bottom: 10px;	
+	border-bottom: 1px solid #888;		
+}
+#QB_LeadConvTable #QBLcAceFromAK td {
+	padding-top: 10px;	
+}
+#QB_LeadConvTable #QBLcKingFromAK td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #888;	
+}
+#QB_LeadConvTable #QBLc4FromLength td {
+	padding-top: 10px;
+}
+#QB_LeadConvTable #QBLc35FromLength td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #888;
+}
+#QB_LeadConvTable #QBLcHighFrom3 td {
+	padding-top: 10px;
+}
+#QB_LeadConvTable #QBLcLowFrom3 td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #888;
+}

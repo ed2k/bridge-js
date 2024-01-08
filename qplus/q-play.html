@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta name="description" lang="en" content="Q-plus bridge program">
+	<meta name="description" lang="de" content="Q-plus Bridge-Programm">	
+	<meta name="description" lang="fr" content="Logiciel Q-plus Bridge">	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- date 2023-11-29 -->
+	
+	<!-- Shortcut Icon -->
+	<link rel="icon" type="image/png" href="img/favicon32.png"/>
+
+	<!-- Stylesheets -->
+	<link	type="text/css" rel="stylesheet"	href="lib/jquery-ui/jquery-ui.min.css"/>
+	<link	type="text/css" rel="stylesheet"	href="audio/audioplayer.css"/>
+	<link	type="text/css" rel="stylesheet"	href="audio/recorder.css"/>
+	<link	type="text/css" rel="stylesheet"	href="lib/EasyTabs.css"/>
+	<link	type="text/css" rel="stylesheet"	href="css/QB.css"/>
+	<link	type="text/css" rel="stylesheet"	href="css/QBplay.css"/>
+
+	<!-- Browser Detection -->
+	<script src="dev/util/BrowserDetect.js"></script>
+	<!-- Product Declaration -->
+	<script> qbDefProductId = "q15";</script>
+
+	<!-- Libraries -->
+	<script src="lib/commonmark.min.js"></script>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+	<script src="lib/jquery.easytabs.js"></script>
+	<script src="lib/jquery-ui/jquery-ui.min.js"></script>
+	<script src="lib/jquery-dialogextend/jquery.dialogextend.min.js"></script>
+	<script src="lib/jquery.ui.touch-punch.min.js"></script>
+	<script src="audio/audioplayer.js"></script>
+	<!-- see https://tympanus.net/codrops/2012/12/04/responsive-touch-friendly-audio-player/ -->
+
+    <!-- Global Variables -->
+	<script src="products/q15/BIDRULE/cmp/BIDIDS.js"></script>
+	<script src="products/q15/BIDRULE/cmp/BIDCONVS.js"></script>
+	<script src="products/q15/BIDRULE/cmp/BIDRULES.js"></script>
+	<script src="products/q15/BIDRULE/config/F-SAYC-I.js"></script>
+
+	<!-- Javascript Source Code -->
+	<script src="dev/util/Utils.js"></script>
+	<script src="dev/util/ULogger.js"></script>
+	<script src="dev/util/Random.js"></script>
+	<script src="dev/util/Memory.js"></script>
+	<script src="dev/util/AudioPlayer.js"></script>
+
+	<script src="dev/base/UI.js"></script>
+
+	<script src="dev/lang/LangDef.js"></script>
+	<script src="dev/lang/Lang.js"></script>
+
+	<script src="dev/core/Player.js"></script>
+	<script src="dev/core/Players.js"></script>
+	<script src="dev/core/Suit.js"></script>
+	<script src="dev/core/Suits.js"></script>
+	<script src="dev/core/Value.js"></script>
+	<script src="dev/core/Values.js"></script>
+	<script src="dev/core/Card.js"></script>
+	<script src="dev/core/Cards.js"></script>
+	<script src="dev/core/Game.js"></script>
+	<script src="dev/core/GameSeries.js"></script>
+	<script src="dev/core/BDL.js"></script>
+ 	<script src="dev/core/LKx.js"></script>
+	<script src="dev/core/DealControl.js"></script> 
+
+	<script src="dev/engine/Stub.js"></script>
+	<script src="dev/engine/PlayStub.js"></script>
+	<script src="dev/engine/PlayEngine.js"></script>
+
+	<script src="dev/ui/LoginWin.js"></script>
+	<script src="dev/ui/Menu.js"></script>
+	<script src="dev/ui/MenuTab.js"></script>
+	<script src="dev/ui/TableTab.js"></script>
+	<script src="dev/ui/ConceptsTab.js"></script>
+	<script src="dev/ui/ProtocolTab.js"></script>
+	<script src="dev/ui/BidsysWin.js"></script>
+	<script src="dev/ui/ActionsTab.js"></script>
+	<script src="dev/ui/ConfigTab.js"></script>
+	<script src="dev/ui/MatchTab.js"></script>
+	<script src="dev/ui/DealsTab.js"></script>	
+	<script src="dev/ui/ScoreTab.js"></script>	
+	<!-- <script src="dev/ui/BDLTab.js"></script> -->
+	<!-- <script src="dev/ui/FilterTab.js"></script> -->
+	<!-- <script src="dev/ui/HandsTab.js"></script> -->
+	<script src="dev/ui/PlayWin.js"></script>
+	<!-- <script src="dev/ui/ExplainWin.js"></script> -->
+	<script src="dev/ui/BidBox.js"></script>
+	<!-- <script src="dev/ui/EditWin.js"></script> -->
+	<!-- <script src="dev/ui/SettingsWin.js"></script> -->
+	<!-- <script src="dev/ui/HelpWin.js"></script> -->
+	<script src="dev/ui/WinManager.js"></script>
+
+	<script src="dev/df/DealFilters.js"></script>
+	<script src="dev/df/DealFinder.js"></script>
+
+	<script src="dev/app/Config.js"></script>
+	<script src="dev/app/QBModel.js"></script>
+	<script src="dev/app/QBApp.js"></script>
+
+	<!--production <script src="lib/QBP.min.js"></script> -->
+
+	<title>Q-plus Bridge 15.7 direct</title>
+</head>
+<body>
+<noscript>
+<p>&nbsp;<p></p><h3> JavaScript is disabled !</h3>
+<b> The Q-plus bridge program can run only when JavaScript is enabled.<br>
+ Please switch it on in the browser settings !<br>
+ (english:settings = deu:Einstellungen = fra:paramètres)</b>
+</noscript>
+
+	<div id="IntroScreen" class="QB">
+		<img style="margin:50px;" src="img/logo.gif">
+		<img style="width:50px;margin-left:245px;margin-top:-50px;" src="img/loading.gif">
+	</div>
+	<div id="LoginWin" class="QB QBWin"></div>
+	<div id="LicenceWin" class="QB QBWin"></div>
+	<div id="LoadConfigWin" class="QB QBWin"></div>	
+	<div id="ConfirmWin" class="QB QBWin"></div>
+	<div id="ClaimWin" class="QB QBWin"></div>
+	<div id="AudioWin" class="QB QBWin"  style="display:none">
+		<audio id="audioPlayer" src="audio/songs/melody.mp3" preload="auto" controls></audio>
+	</div>
+    <div id="ContextMenuPlayers"></div>
+    <div id="QGeneralDialog"></div>
+    <div id="QTutorialControl"></div>
+    <div id="QSignallingConvs"></div>	
+    <div id="QHelpWindow"></div>
+	<div id="PlayWin" class="QB QBWin">
+		<div id="PlayArea">
+			<ul id="PlayTabs" class='etabs'>
+				<li class='tab'><a id="PlayTabMenu" href="#PlayAreaMenu"></a></li>
+				<li class='tab'>
+					<a id="PlayTabFullScreen" href="#xxx"
+						onclick="Interaction.toggleFullScreen(this,document.documentElement);QB.winManager.arrangeDialogs('');">
+					</a>
+				</li>
+				<li class='tab'><a id="PlayTabTable" href="#PlayAreaTable"></a></li>
+				<li class='tab'><a id="PlayTabRecord" href="#PlayAreaRecord"></a></li>
+				<li class='tab'><a id="PlayTabActions" href="#PlayAreaActions"></a></li>
+				<li class='tab'><a id="PlayTabConfig" href="#PlayAreaConfig"></a></li>
+				<li class='tab'><a id="PlayTabMatch" href="#PlayAreaMatch"></a></li>
+				<li class='tab'><a id="PlayTabDeals" href="#PlayAreaDeals"></a></li>					
+				<li class='tab'><a id="PlayTabScore" href="#PlayAreaScore"></a></li>				
+				<li class='tab'><a id="PlayTabConcepts" href="#PlayAreaConcepts"></a></li>
+				<li class='tab'><a id="PlayTabHelp" href="#PlayAreaMenu" onclick="QB.winManager.toggleDialog('HelpWin');">?</a></li>
+			</ul>
+			<div id="PlayAreaMenu" class="PlayArea">
+				<div id="PlayViewMenu" class="PlayView">
+					<div id="menu">
+						<a id="m_Product"></a>
+						<a id="m_Reset"></a>
+						<a id="m_Settings"></a>
+						<a id="m_Log"></a>
+					</div>
+				</div>
+			</div>
+			<div id="PlayAreaConcepts" class="PlayArea">
+				<div id="PlayViewConcepts" class="PlayView">
+				</div>
+			</div>
+			<div id="PlayAreaTable" class="PlayArea">
+				<div id="PlayViewTable" class="PlayView">
+					<div id="table">
+						<div style="position:relative">
+							<!--<img id="ruler" src="img/ruler_1201.png" style="position:absolute;left:0px;top:100px;z-index:1"/>-->
+							<div id="plrN" class="plr"></div>
+							<div id="ptrN" class="ptr"></div>							
+							<div id="handN" class="hand">
+								<div style="position:relative">
+									<img class="cardInHand" id="chN0"/>
+									<img class="cardInHand" id="chN1"/>
+									<img class="cardInHand" id="chN2"/>
+									<img class="cardInHand" id="chN3"/>
+									<img class="cardInHand" id="chN4"/>
+									<img class="cardInHand" id="chN5"/>
+									<img class="cardInHand" id="chN6"/>
+									<img class="cardInHand" id="chN7"/>
+									<img class="cardInHand" id="chN8"/>
+									<img class="cardInHand" id="chN9"/>
+									<img class="cardInHand" id="chN10"/>
+									<img class="cardInHand" id="chN11"/>
+									<img class="cardInHand" id="chN12"/>
+								</div>
+							</div>
+							<div id="handW" class="hand">
+								<div style="position:relative">
+									<img class="cardInHand" id="chW0"/>
+									<img class="cardInHand" id="chW1"/>
+									<img class="cardInHand" id="chW2"/>
+									<img class="cardInHand" id="chW3"/>
+									<img class="cardInHand" id="chW4"/>
+									<img class="cardInHand" id="chW5"/>
+									<img class="cardInHand" id="chW6"/>
+									<img class="cardInHand" id="chW7"/>
+									<img class="cardInHand" id="chW8"/>
+									<img class="cardInHand" id="chW9"/>
+									<img class="cardInHand" id="chW10"/>
+									<img class="cardInHand" id="chW11"/>
+									<img class="cardInHand" id="chW12"/>
+								</div>
+							</div>
+							<div id="plrW" class="plr"></div>
+							<div id="ptrW" class="ptr"></div>						
+							<div id="center">
+								<img class="cardOnTable" id="ctN"/>
+								<img class="cardOnTable" id="ctE"/>
+								<img class="cardOnTable" id="ctS"/>
+								<img class="cardOnTable" id="ctW"/>
+							</div>
+							<div id="bidHistory">
+							  <div id="bidsDone">
+								<button class="players" id="p0"></button>
+								<button class="players" id="p1"></button>
+								<button class="players" id="p2"></button>
+								<button class="players" id="p3"></button>
+								<hr/>
+                                <div>
+    								<button class="bidC" id="bid0"></button>
+    								<button class="bidC" id="bid1"></button>
+    								<button class="bidC" id="bid2"></button>
+    								<button class="bidC" id="bid3"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid4"></button>
+    								<button class="bidC" id="bid5"></button>
+    								<button class="bidC" id="bid6"></button>
+    								<button class="bidC" id="bid7"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid8"></button>
+    								<button class="bidC" id="bid9"></button>
+    								<button class="bidC" id="bid10"></button>
+    								<button class="bidC" id="bid11"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid12"></button>
+    								<button class="bidC" id="bid13"></button>
+    								<button class="bidC" id="bid14"></button>
+    								<button class="bidC" id="bid15"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid16"></button>
+    								<button class="bidC" id="bid17"></button>
+    								<button class="bidC" id="bid18"></button>
+    								<button class="bidC" id="bid19"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid20"></button>
+    								<button class="bidC" id="bid21"></button>
+    								<button class="bidC" id="bid22"></button>
+    								<button class="bidC" id="bid23"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid24"></button>
+    								<button class="bidC" id="bid25"></button>
+    								<button class="bidC" id="bid26"></button>
+    								<button class="bidC" id="bid27"></button>
+                                </div>
+                                <div>
+    								<button class="bidC" id="bid28"></button>
+    								<button class="bidC" id="bid29"></button>
+    								<button class="bidC" id="bid30"></button>
+    								<button class="bidC" id="bid31"></button>
+                                </div>
+							  </div>	
+							  <div id="bidSummary">...</div>							
+							</div>								
+							<div id="miniBidHistory">
+						    <table id="QB_miniBidTable">
+							<tr>
+								<td> </td><td id="miniBidN"> </td><td> </td>
+							</tr>
+							<tr>
+							    <td id="miniBidW"> </td><td> </td><td id="miniBidE"> </td>
+							</tr>
+							<tr>
+								<td> </td><td id="miniBidS"> </td><td> </td>
+							</tr>							
+						    </table>
+							</div>
+							<div id="miniBidSummary">...</div>						
+							<div id="handE" class="hand">
+								<div style="position:relative">
+									<img class="cardInHand" id="chE0"/>
+									<img class="cardInHand" id="chE1"/>
+									<img class="cardInHand" id="chE2"/>
+									<img class="cardInHand" id="chE3"/>
+									<img class="cardInHand" id="chE4"/>
+									<img class="cardInHand" id="chE5"/>
+									<img class="cardInHand" id="chE6"/>
+									<img class="cardInHand" id="chE7"/>
+									<img class="cardInHand" id="chE8"/>
+									<img class="cardInHand" id="chE9"/>
+									<img class="cardInHand" id="chE10"/>
+									<img class="cardInHand" id="chE11"/>
+									<img class="cardInHand" id="chE12"/>
+								</div>
+							</div>
+							<div id="plrE" class="plr"></div>
+							<div id="ptrE" class="ptr"></div>							
+							<div id="plrS" class="plr"></div>
+							<div id="ptrS" class="ptr"></div>								
+							<div id="handS" class="hand">
+								<div style="position:relative">
+									<img class="cardInHand" id="chS0"/>
+									<img class="cardInHand" id="chS1"/>
+									<img class="cardInHand" id="chS2"/>
+									<img class="cardInHand" id="chS3"/>
+									<img class="cardInHand" id="chS4"/>
+									<img class="cardInHand" id="chS5"/>
+									<img class="cardInHand" id="chS6"/>
+									<img class="cardInHand" id="chS7"/>
+									<img class="cardInHand" id="chS8"/>
+									<img class="cardInHand" id="chS9"/>
+									<img class="cardInHand" id="chS10"/>
+									<img class="cardInHand" id="chS11"/>
+									<img class="cardInHand" id="chS12"/>
+								</div>
+							</div>					
+							<div id="box_NW" class="infoBox">
+								<span id="box_Label_Game"></span> : &nbsp;<span id="box_Game_1"></span><br/>
+								<span id="box_Game_2"></span>
+							</div>
+							<div id="box_NE" class="infoBox">
+								<span id="box_Label_Dealer"></span> : &nbsp;<span id="box_Dealer"></span><br/>
+								<span id="box_Label_Vuln"></span> : &nbsp;<span id="box_Vuln"></span>
+								<p></p>
+								<span id="box_Label_Score"></span><span id="box_Score"></span>
+							</div>
+							<div id="box_SW" class="infoBox">
+								<span id="box_Label_Contract"></span><p></p><span id="box_Contract"></span>
+							</div>
+							<div id="box_SE" class="infoBox">
+								<span id="box_Label_Tricks"></span><span id="box_Tricks"></span><br/>
+								<span id="box_Label_Result"></span><span id="box_Result"></span><br/>
+							</div>
+						</div>
+					</div>
+					<div id="footer">
+						<div id="tableButtons" style="position:relative;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="PlayAreaRecord" class="PlayArea">
+				<div id="PlayViewRecord" class="PlayView">
+					<div id="QB_PlayRecordHeading"> </div>
+					<div id="QB_PlayRecordBids"> </div>
+					<div id="QB_PlayRecordTricks">  </div>
+				</div>
+			</div>
+			<div id="PlayAreaActions" class="PlayArea">
+				<div id="PlayViewActions" class="PlayView">
+				</div>
+			</div>
+			<div id="PlayAreaConfig" class="PlayArea">
+				<div id="PlayViewConfig" class="PlayView">
+				</div>
+			</div>
+			<div id="PlayAreaMatch" class="PlayArea">
+				<div id="PlayViewMatch" class="PlayView">
+				</div>
+			</div>
+			<div id="PlayAreaDeals" class="PlayArea">
+			  <div id="PlayViewDeals" class="PlayView">
+				<ul id="DealTabs" class='etabs'>
+				<li class='tab'><a id="DealTabOwn" href="#DealAreaOwn"></a></li>
+				<li class='tab'><a id="DealTabFiles" href="#DealAreaFiles"></a></li>
+				<li class='tab'><a id="DealTabPairTF" href="#DealAreaPairTF"></a></li>
+				<li class='tab'><a id="DealTabTeamTF" href="#DealAreaTeamTF"></a></li>				
+				</ul>
+				<div id="DealAreaOwn" class="DealArea">
+					<div id="DealViewOwn" class="DealView">
+					</div>			
+				</div>		
+				<div id="DealAreaFiles" class="DealArea">
+					<div id="DealViewFiles" class="DealView">
+					</div>			
+				</div>	
+				<div id="DealAreaPairTF" class="DealArea">
+					<div id="DealViewPairTF" class="DealView"><center>
+					    <p><div id="QB_PairTFHeader"></div></p>
+						<p><table id="QB_PairTFList"></table></p>					
+					    <p><div id="QB_PairTFFooter"></div></p>				
+					</center></div>			
+				</div>					
+				<div id="DealAreaTeamTF" class="DealArea">
+					<div id="DealViewTeamTF" class="DealView"><center>
+					    <p><div id="QB_TeamTFHeader"></div></p>
+						<p><table id="QB_TeamTFList"></table></p>					
+					    <p><div id="QB_TeamTFFooter"></div></p>	
+					</center></div>			
+				</div>		
+			  </div>				
+			</div>		
+			<div id="PlayAreaScore" class="PlayArea">
+		      <div id="PlayViewScore" class="PlayView">
+				<ul id="ScoreTabs" class='etabs'>
+				<li class='tab'><a id="ScoreTabOverview" href="#ScoreAreaOverview"></a></li>
+				<li class='tab'><a id="ScoreTabDetails1" href="#ScoreAreaDetails1"></a></li>
+				<li class='tab'><a id="ScoreTabDetails2" href="#ScoreAreaDetails2"></a></li>				
+				</ul>
+				<div id="ScoreAreaOverview" class="ScoreArea">
+					<div id="ScoreViewOverview" class="ScoreView"><center>
+					    <p><div id="QB_ScoreOVHeader"></div></p>
+						<p><table id="QB_ScoreOVTable"></table></p>					
+					    <p><div id="QB_ScoreOVFooter"></div></p>						
+					</center></div>			
+				</div>		
+				<div id="ScoreAreaDetails1" class="ScoreArea">
+					<div id="ScoreViewDetails1" class="ScoreView">
+					</div>			
+				</div>			
+				<div id="ScoreAreaDetails2" class="ScoreArea">
+					<div id="ScoreViewDetails2" class="ScoreView">
+					</div>			
+				</div>		
+			  </div>
+			</div>			
+		</div>
+	</div>
+	<div id="ExplainPWin" class="QB QBWin">
+	  <div id="BidExplanations"></div>
+	</div>
+	<div id="ContextMenuBids">
+	</div>
+	<div id="BidBoxWin" class="QB QBWin">
+		<div id="BidBoxCards" style="position:absolute; bottom:5px;">
+			<div id="BidLevel7">
+				<button class="bid" id="7c">7 &clubs;</button>
+				<button class="bid" id="7d">7 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="7h">7 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="7s">7 &spades;</button>
+				<button class="bid" id="7nt">7 NT</button>
+			</div>
+			<div id="BidLevel6">
+				<button class="bid" id="6c">6 &clubs;</button>
+				<button class="bid" id="6d">6 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="6h">6 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="6s">6 &spades;</button>
+				<button class="bid" id="6nt">6 NT</button>
+			</div>
+			<div id="BidLevel5">
+				<button class="bid" id="5c">5 &clubs;</button>
+				<button class="bid" id="5d">5 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="5h">5 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="5s">5 &spades;</button>
+				<button class="bid" id="5nt">5 NT</button>
+			</div>
+			<div id="BidLevel4">
+				<button class="bid" id="4c">4 &clubs;</button>
+				<button class="bid" id="4d">4 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="4h">4 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="4s">4 &spades;</button>
+				<button class="bid" id="4nt">4 NT</button>
+			</div>
+			<div id="BidLevel3">
+				<button class="bid" id="3c">3 &clubs;</button>
+				<button class="bid" id="3d">3 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="3h">3 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="3s">3 &spades;</button>
+				<button class="bid" id="3nt">3 NT</button>
+			</div>
+			<div id="BidLevel2">
+				<button class="bid" id="2c">2 &clubs;</button>
+				<button class="bid" id="2d">2 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="2h">2 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="2s">2 &spades;</button>
+				<button class="bid" id="2nt">2 NT</button>
+			</div>
+			<div id="BidLevel1">
+				<button class="bid" id="1c">1 &clubs;</button>
+				<button class="bid" id="1d">1 <span style="color:red">&diams;</span></button>
+				<button class="bid" id="1h">1 <span style="color:red">&hearts;</span></button>
+				<button class="bid" id="1s">1 &spades;</button>
+				<button class="bid" id="1nt">1 NT</button>
+			</div>
+			<div id="BidLevel0" style="margin-top:10px">
+				<button class="bid" id="-"><span style="color:darkgreen;">&nbsp; &nbsp; &nbsp; PASS &nbsp; &nbsp; &nbsp;</span></button>
+				<button class="bid" id="x"><span style="color:red;">&nbsp; X &nbsp;</span></button>
+				<button class="bid" id="xx"><span style="color:blue;">&nbsp; XX &nbsp;</span></button>
+			</div>
+		</div>
+	</div>
+	<div id="LogWin" class="QB QBWin">
+		<br/>&nbsp;<br/>
+	</div>
+	<div id="ProtocolWin" class="QB QBWin">
+		<div id="QB_PlayProtocolHeader"></div>
+		<div id="QB_PlayProtocol"></div>
+	</div>	
+</body>
+</html>
