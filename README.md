@@ -12,5 +12,9 @@ LoginWindow extens View
 
 QB QBApp.js
 
+interaction,
+ TableTab bind $(".QB .cardInHand").click(QB.playWin.tableTab.cardClicked);
+   get card from event.currentTarget.currentSrc then QBM.game.playCard(player, card)
+
 shengji code study
 https://github.com/rbtying/shengji/blob/master/frontend/src/generated/playing-cards/1B.tsx
