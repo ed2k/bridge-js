@@ -1,0 +1,655 @@
+
+body {
+	margin:				0px;
+	padding:			0px;
+	background-color:	#a0a0a0;
+	overflow:			hidden;
+}
+
+/* ======================================== INTRO					*/
+
+#IntroScreen {
+	position:			fixed;
+	left:				calc( 50% - 200px );
+	top:				calc( 50% - 200px );
+	width:				290px;
+	height:				310px;
+	background-color:	#999;
+	z-index:			200;
+	padding:			20px;
+}
+
+/* ======================================== MENU					*/
+
+#menu {
+	position:			fixed;
+	left:				0px;
+	outerHeight:		20px;
+	padding:			2px;
+	padding-left:		10px;
+	background-color:	#e0ecb9;
+}
+#menu a {
+	text-decoration:	none;
+	padding-right:		20px;
+}
+
+.notab {
+	display:			inline-block;
+}
+
+.QB button {
+	color: black; /* because the iPad has it blue */
+}
+
+.QB button:disabled {
+	color: grey;
+}
+
+/* ======================================== PLAY WINDOW			*/
+
+#PlayWin {
+	padding:			0px;
+	overflow:			hidden;
+	background-color:	#e6e6ff;
+}
+
+.PlayView {
+	display:			none;
+}
+
+.PlayArea {
+	padding:			0px;
+}
+
+.DealView {
+	display:			none;
+}
+
+.ScoreView {
+	display:			none;
+}
+
+.PlayArea button {
+	background-color: #cde;
+	border-radius: 	  4px;
+}
+
+/* ======================================== PLAY TAB: MENU		*/
+
+#PlayViewMenu {
+	overflow-y:			scroll;
+	padding-left:		15px;
+	background-color:	#fff;
+}
+
+/* ======================================== PLAY TAB: TABLE		*/
+
+.QB .infoBox {
+	position:			absolute;
+	background-color:	#07a;
+	border-radius:		10px;
+	border:				1px solid darkgray;
+	padding:			5px;
+	font-family:		"arial";
+	font-weight:		400;
+	font-size:			100%;
+	color:				white;
+}
+
+.QB .infoBox span {
+	color:				white;
+}
+.QB #box_Contract, #box_Game_1, #box_Game_2 {
+	font-size:			125%;
+}
+
+.QB .plr {
+	position:			absolute;
+	/* background-color:	#0d64af; */
+	background-color:	#204080;	
+	border:				1px solid lightgray;
+	border-radius:		10px;
+	width:				20px;
+	height:				60px;
+	color:				lightgray;
+	display:			none;			/* temporarily disabled */
+}
+.QB .plr div {
+	margin-left:		5px;
+	margin-top:			5px;
+}
+
+.QB .ptr {
+	position:			absolute;
+	background-color:	#fff;
+	border:				1px solid darkgray;
+	width:				20px;
+	height:				20px;
+	text-align:			center;
+	font-weight:		600;
+}
+
+.QB #header {
+	position:			absolute;
+	top:				0px;
+	left:				0px;
+}
+
+.QB #table {
+	position:			absolute;
+	left:				0px;
+	/* background-image:	url('../img/blueTable.jpg'); */
+	/* background-color:	#0d64af; */
+	background-color:	#204080;
+}
+
+.QB #center {
+	position:			absolute;
+	background-image:	url('../img/greenTable.jpg');
+	background-size:	cover;
+	border-radius:		10px;
+	border:				1px solid darkgray;
+}
+
+.QB #bidHistory {
+	position:			absolute;
+	background-image:	url('../img/greenTable.jpg');
+/*	background-color:	#007e6c; */
+	border-radius:		10px;
+	border:				1px solid darkgray;
+	padding-left:		8px;
+	padding-top:		10px;
+}
+
+.QB #bidHistory hr {
+	margin-left:		5px;
+	width:				220px;
+}
+
+.QB #bidHistory .players, .bidC {
+	background-color:	#eee;
+	width:				50px;
+	height:				20px;
+	margin-left:		0px;
+	margin-right:		0px;
+	margin-top:			2px;
+	border-radius:		4px;
+	border:				solid 1px #444;
+	padding-left:		0px;
+	padding-right:		0px;
+	padding-top:		0px;
+	padding-bottom:		0px;	
+}
+
+.QB #bidHistory .bidC {
+	font-weight:		600;
+}
+
+.QB #bidHistory hr {
+	text-align:			left;
+	margin-left:		0;
+}
+
+.QB #bidSummary {
+	background-color:	#ddd;
+	padding-top:		5px;
+	padding-bottom:		5px;
+	font-weight:		600;	
+	text-align:			center;
+	margin-left:		3px;
+	margin-top:			10px;
+	border-radius:		4px;
+	border:				solid 1px #444;
+}
+
+.QB #miniBidHistory {
+	position:			absolute;
+}
+
+#QB_miniBidTable {
+    /* border: solid 1px darkgray; */
+	width: 100%;
+	height: 100%;
+}
+
+#QB_miniBidTable td {
+	background-color:	#dfd;
+	font-weight:		600;	
+    text-align: center;
+	width: 33%;
+	height: 33%;
+}
+
+.QB #miniBidSummary {
+	position:			absolute;
+	background-color:	#ddd;
+	padding-top:		0px; 
+	padding-bottom:		0px;
+	padding-left:		8px;	
+	font-weight:		600;
+	text-align:			center;
+	margin-left:		5px; 
+	margin-top:			0px; 
+	border-radius:		4px;
+	border:				solid 1px #444;
+}
+
+.QB .cardOnTable {
+	position:			absolute;
+	top:				0px;
+	width:				90px;
+}
+
+.QB #footer {
+	position:			absolute;
+	left:				0px;
+	background-color:	#102040;
+	color:				white;
+}
+
+.QB #footer div button {
+	padding-left:		5px;
+	padding-right:		5px;
+	padding-top:		4px;
+	padding-bottom:		2px;
+	margin-top:			5px;
+	font-weight:		600;
+	background: 		#cde;
+	border-radius: 		4px;	
+}
+
+.QB #footer .BFtFirst {
+	min-width:		8%;
+	margin-left:    6px;
+}
+.QB #footer .BFtTight, .review {
+	min-width:		8%;
+	margin-left:    3%;
+}
+.QB #footer .BFtSkip {
+	min-width:		8%;
+	margin-left:    8%;
+}
+
+.QB .cardInHand {
+	position:			absolute;
+	top:				0px;
+	width:				90px;
+}
+
+.QB .hand {
+	position:			absolute;
+	/* background-color:	#0d64af; */
+	background-color:	#204080;	
+	overflow:			hidden;
+	top:				0px;
+	left:				0px;
+	border-radius:		15px;
+}
+
+/* ======================================== PLAY TAB: Concepts	*/
+
+#PlayViewConcepts {
+	overflow-y:			scroll;
+	padding-left:		15px;
+	background-color:	#e6e6ff;
+}
+
+/* ======================================== PLAY TAB: Record	*/
+
+#PlayViewRecord {
+	overflow-y:			scroll;
+	background-color:	#e6e6ff;
+	padding-left:		10px;
+}
+
+#QB_PlayRecordBids hr {
+	border:				solid 1px gray;
+	text-align:			left;
+	margin-left:		0;
+}
+
+#QB_PlayRecordTricks {
+	font-family:		monospace;
+	font-size:			150%;
+	font-weight:		600;
+	white-space:		pre;
+}
+
+/* ======================================== PLAY TAB: CONFIG	*/
+
+#PlayViewConfig button {
+	padding-top:		4px;
+	padding-bottom:		4px;	
+}
+
+/* ======================================== PLAY TAB: ACTIONS	*/
+
+#PlayViewActions button {
+	padding-top:		4px;
+	padding-bottom:		4px;	
+}
+
+/* ======================================== PLAY TAB: BDL		*/
+
+#PlayViewBDL {
+	overflow:			scroll;
+	white-space:		pre;
+	font-family:		monospace;
+	padding-left:		15px;
+	background-color:	#ffffe6;
+}
+
+#QB_BDLHeader {
+	font-size:			125%;
+	padding:			10px;
+	font-weight:		600;
+	background-color:	#ffc;
+}
+
+#QB_BDLHeader a {
+	text-decoration:	none;
+	color:				blue;
+}
+
+/* ======================================== PLAY TAB: Filter	*/
+
+#PlayViewFilter {
+	overflow:			scroll;
+	padding-left:		15px;
+	background-color:	#f3f3ff;
+}
+
+#PlayViewFilter button {
+	margin-right:		10px;
+	margin-top:			5px;
+}
+
+#PlayViewFilter a {
+	text-decoration:	none;
+	color:				blue;
+}
+
+#PlayViewFilter a:visited {
+	text-decoration:	none;
+	color:				violet;
+}
+
+/* ======================================== PLAY TAB: Hands		*/
+
+#PlayViewHands {
+	overflow:			scroll;
+	padding-left:		15px;
+	background-color:	#f8fff8;
+}
+
+#PlayViewHandsMsg {
+	margin-top:			10px;
+	background-color:	#eef;
+	height:				40px;
+	padding-top:		5px;
+	padding-left:		10px;
+	overflow-y:			scroll;
+}
+
+#PlayViewHandsBody {
+	white-space:		pre;
+	font-family:		monospace;
+}
+
+#PlayViewHandsBody h4 {
+	font-family:		Arial;
+}
+
+#PlayViewHandsBody a {
+	text-decoration:	none;
+	color:				blue;
+}
+#PlayViewHandsBody a:visited {
+	color:				violet;
+}
+
+#PlayViewHandsFilterEdit {
+	display:			none;
+}
+#PlayViewHandsQueryEdit {
+	font-family:		monospace;
+	white-space:		pre;
+	display:			inline-block;
+	margin-top:			15px;
+	vertical-align:		top;
+	width:				250px;
+}
+
+#PlayViewHandsQueryHelp {
+	white-space:		pre;
+	font-family:		monospace;
+	margin-left:		20px;
+	display:			inline-block;
+	overflow-x:			scroll;
+	font-size:			80%;
+}
+
+/* ======================================== CONTEXT MENU BIDS	*/
+
+#ContextMenuBids {
+	background-color:	#eee;
+}
+
+/* ======================================== BIDBOX WINDOW		*/
+
+#BidBoxWin {
+	padding:			2px;
+	background-color:	#d4edf1;
+	padding-top:		1px;
+	padding-bottom:		8px; 
+}
+
+#BidBoxWin .bid {
+	display:			inline-block;
+	margin-top:			5px;
+	margin-right:		1px;
+	font-weight:		600;
+	border-width:		2px;
+	border-color:		#ca9;
+}
+
+#BidBoxWin .bid:disabled {
+  opacity:				0.3;
+}
+
+#BidBoxWin hr {
+  border: 				3px solid #c4dde1;
+  border-radius: 		3px;
+}
+
+/* ======================================== SETTINGS WINDOW		*/
+
+#tutorialIndex {
+	background-color:	#eec;
+	border:				2px solid #990;
+	padding:			10px;
+}
+
+/* ======================================== CONTEXT MENU PLAYERS	*/
+
+#ContextMenuPlayers {
+	background-color:	#eee;
+}
+
+/* ======================================== PROTOCOL WINDOW		*/
+
+#ProtocolWin {
+	overflow-y:			scroll;
+	padding-left:		10px;
+	background-color:	#e6fff0;
+}
+
+#QB_PlayProtocol {
+	font-family:		monospace;
+	font-size:			110%;
+	white-space:		pre;
+}
+
+/* ======================================== EDIT WINDOW			*/
+
+#EditWin {
+	padding:			0;
+	overflow:			hidden;
+}
+
+#EditWin .main {
+	background-color:	#ffe;
+	overflow-y:			scroll;
+	height:				calc(100% - 60px);
+	width:				calc(100% - 10px);
+	position:			relative;
+	white-space:		pre;
+	font-family:		monospace;
+	font-size:			125%;
+	padding:			5px;
+	padding-bottom: 	10px;
+}
+
+#EditWin .buttons {
+	margin-top:			3px;
+	background-color:	#06a;
+	padding:			8px;
+	height:				24px;
+}
+
+#EditWin .buttons button {
+	margin-right:		20px;
+	font-weight:		600;
+}
+
+/* ======================================== LOG WINDOW			*/
+
+#LogWin {
+	/* background-color:	#eec; */
+	background-color:	#f0f0e6;	
+	font-family:		monospace;
+	white-space:		pre;
+	padding:			6px;
+	overflow:			scroll;
+}
+
+/* ======================================== AUDIO WINDOW		*/
+
+#AudioWin {
+	background-color:	#bbb;
+	font-family:		monospace;
+	width:				300px;
+	height:				100px;
+}
+
+/* ======================================== HELP WINDOWS	*/
+
+.HelpArea {
+	margin-top:			5px;
+}
+
+.HelpView {
+	overflow-y:			scroll;
+	padding-left:		15px;
+	background-color:	#efe;
+}
+
+#QHelpWindow {
+	background-color:	#eff;
+}
+
+/* ======================================== CONFIGURATION WINDOWS	*/
+
+#QGeneralDialog {
+	background-color:	#eee;
+}
+
+#QGeneralDialog button {
+	background-color:	#cde;
+	border-radius: 		4px;	
+}
+
+#QSignallingConvs {
+	background-color:	#dee;
+}
+
+/* ======================================== CONFIRMATION WINDOW	*/
+
+#ConfirmWin {
+	background-color:	#dfd;
+	width:				500px;
+}
+
+#ConfirmWin button {
+	background-color: #cde;
+	border-radius: 	  4px;
+	padding-top:	  4px;
+	padding-bottom:	  4px;		
+}
+
+/* ======================================== CLAIM WINDOW	*/
+
+#ClaimWin {
+	background-color:	#ddf;
+}
+
+/* ======================================== LOGIN and LICENCE WINDOW	*/
+
+#LoginWin {
+	background-color:	#def;
+}
+
+#LoginWin button {
+	background-color: #cde;
+	border-radius: 	  4px;
+}
+
+#LicenceWin {
+	background-color:	#def;
+}
+
+#LicenceWin button {
+	background-color: #cde;
+	border-radius: 	  4px;
+}
+
+/* ========================================= QBWin (only during startup) */
+
+.QBWin {
+	position:			absolute;
+	left:				0px;
+	top:				0px;
+	width:				500px;
+	height:				0;
+	overflow:			scroll;
+}
+
+/* ======================================== JQUERY UI           */
+
+.ui-dialog .ui-dialog-buttonpane {
+	background-color:	#efb;
+}
+
+.ui-dialog .ui-dialog-content {
+	padding: .5em .5em;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 0em .4em;
+}
+
+.ui-dialog .ui-dialog-buttonpane .uiButtonAlignLeft {
+    margin-right: 120px;
+}
+
+.ui-dialog .ui-dialog-buttonpane .uiButtonFirst {
+    margin-right: 40px;
+}
+
+/* ========================================= EasyTabs			*/
+
+.tab a {
+	padding:			0 8px;
+}
