@@ -10,6 +10,8 @@ LoginWindow extens View
   init, onclick Demo Verson button, QB.start2(\"demo\")
     QBModel.nextGame() this.dealControl.request("IDS_NEXT_DEAL")
 
+response back ? child class of view.onChanged
+
 QB QBApp.js
 
 interaction,
