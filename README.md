@@ -11,3 +11,6 @@ LoginWindow extens View
     QBModel.nextGame() this.dealControl.request("IDS_NEXT_DEAL")
 
 QB QBApp.js
+
+shengji code study
+https://github.com/rbtying/shengji/blob/master/frontend/src/generated/playing-cards/1B.tsx
