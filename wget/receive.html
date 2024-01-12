@@ -63,7 +63,7 @@
                  */
                  function initialize() {
                     // Create own peer object with connection to shared PeerJS server
-                    peer = new Peer(null, {
+                    peer = new Peer("table123", {
                         debug: 2
                     });
 
@@ -85,7 +85,7 @@
                         if (conn && conn.open) {
                             c.on('open', function() {
                                 c.send("Already connected to another client");
-                                setTimeout(function() { c.close(); }, 500);
+                                // setTimeout(function() { c.close(); }, 500);
                             });
                             return;
                         }
@@ -93,7 +93,7 @@
                         conn = c;
                         console.log("Connected to: " + conn.peer);
                         status.innerHTML = "Connected";
-                        ready();
+                        ready(c);
                     });
                     peer.on('disconnected', function () {
                         status.innerHTML = "Connection lost. Please reconnect";
@@ -119,9 +119,9 @@
                  * Triggered once a connection has been achieved.
                  * Defines callbacks to handle incoming data and connection events.
                  */
-                function ready() {
-                    conn.on('data', function (data) {
-                        console.log("Data recieved");
+                function ready(new_conn) {
+                    new_conn.on('data', function (data) {
+                        console.log("Data recieved " + new_conn);
                         var cueString = "<span class=\"cueMsg\">Cue: </span>";
                         switch (data) {
                             case 'Go':
@@ -145,7 +145,7 @@
                                 break;
                         };
                     });
-                    conn.on('close', function () {
+                    new_conn.on('close', function () {
                         status.innerHTML = "Connection reset<br>Awaiting connection...";
                         conn = null;
                     });
