@@ -19,4 +19,4 @@ interaction,
    get card from event.currentTarget.currentSrc then QBM.game.playCard(player, card)
 
 shengji code study
-https://github.com/rbtying/shengji/blob/master/frontend/src/generated/playing-cards/1B.tsx
+https://github.com/rbtying/shengji

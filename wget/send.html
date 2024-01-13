@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Peer-to-Peer Cue System --- Sender</h1>
+        <h1>Peer-to-Peer Bridge player V0.0.1</h1>
 
         <table class="control">
             <tr>
@@ -30,22 +30,7 @@
                 <td><div id="status" class="status"></div></td>
                 <td><div class="message" id="message"></div></td>
             </tr>
-            <tr>
-                <td>
-                    <button type="button" class="control-button" id="resetButton">Reset</button>
-                </td>
-                <td>
-                    <button type="button" class="control-button" id="goButton">Go</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="button" class="control-button" id="fadeButton">Fade</button>
-                </td>
-                <td>
-                    <button type="button" class="control-button" id="offButton">Off</button>
-                </td>
-            </tr>
+
         </table>
 
         <script src="https://unpkg.com/peerjs@1.5.0/dist/peerjs.min.js"></script>
@@ -58,10 +43,7 @@
                 var recvIdInput = document.getElementById("receiver-id");
                 var status = document.getElementById("status");
                 var message = document.getElementById("message");
-                var goButton = document.getElementById("goButton");
-                var resetButton = document.getElementById("resetButton");
-                var fadeButton = document.getElementById("fadeButton");
-                var offButton = document.getElementById("offButton");
+
                 var sendMessageBox = document.getElementById("sendMessageBox");
                 var sendButton = document.getElementById("sendButton");
                 var clearMsgsButton = document.getElementById("clearMsgsButton");
