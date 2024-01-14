@@ -20,3 +20,8 @@ interaction,
 
 shengji code study
 https://github.com/rbtying/shengji
+
+guandan code study
+https://github.com/Bobgy/poker-guandan-strategy
+score on all possible combination, the smaller the better
+recursive on iterateImp()
